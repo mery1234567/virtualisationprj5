@@ -37,3 +37,9 @@ jobs:
       run: |
         sleep 5
         curl -f http://localhost:3000 | grep "Hello from the backend"
+        
+    - name: Run backend tests
+      run: |
+       docker run -d -p 3000:3000 my-backend-app
+       sleep 5
+       curl -f http://localhost:3000/test | grep "Test passed"
